@@ -10,5 +10,6 @@ path = kagglehub.dataset_download("uciml/pima-indians-diabetes-database")
 print("Path to dataset files:", path)
 file_path = path +'/diabetes.csv'
 
-dataset = pd.read_csv(file_path)
-print(dataset.head())
+df = pd.read_csv(file_path)
+print(df.head())
+print(df.info())
