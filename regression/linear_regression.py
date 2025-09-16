@@ -54,4 +54,38 @@ print("R2 score:", r2_score(y_test, y_pred))
 print("MSE:", mean_squared_error(y_test, y_pred))
 
 # Visualization using matplotlib
-# continue here later
+
+plt.scatter(y_test, y_pred, alpha=0.7)
+plt.xlabel("Actual Glucose")
+plt.ylabel("Predicted Glucose")
+plt.title("Actual vs Predicted Glucose Levels")
+plt.show()
+
+# Coefficients
+coefficients = pd.DataFrame({
+    "Feature": X.columns,
+    "Coefficient": model.coef_
+}).sort_values(by="Coefficient", ascending=False)
+
+print(coefficients)
+
+# When you do simple linear regression (only one feature X vs. y),
+# you can draw a straight regression line across the scatterplot.
+#
+# But when you do multiple linear regression (like in the Pima dataset where
+# you used many predictors: BMI, Age, Insulin, etc.), the regression isn’t just
+# a single line — it’s a hyperplane in multi-dimensional space.
+#
+# Since you can’t plot a hyperplane in 8-dimensional space, the common workaround
+# is to plot predicted vs. actual values instead of a line:
+
+plt.scatter(y_test, y_pred, alpha=0.7, color="blue")
+plt.plot([y_test.min(), y_test.max()],
+         [y_test.min(), y_test.max()],
+         color="red", linestyle="--", linewidth=2)  # 45-degree reference line
+
+plt.xlabel("Actual Glucose")
+plt.ylabel("Predicted Glucose")
+plt.title("Actual vs Predicted Glucose")
+plt.show()
+
