@@ -288,3 +288,7 @@ def predict_new_samples(df_new):
 # --------------------------
 # End of script
 # --------------------------
+
+# todo: break code down into functions for readability
+# todo: read through code, redo logistic regression
+# todo: read linear and logistic regression math in ESL
