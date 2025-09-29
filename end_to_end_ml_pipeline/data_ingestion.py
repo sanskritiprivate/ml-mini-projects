@@ -24,4 +24,4 @@ def load_new_csvs(prefix="incoming/"):
             file_obj = s3.get_object(Bucket=bucket_name, Key=key)
             df = pd.read_csv(file_obj["Body"])
             dfs.append((key, df))
-    return dfs
+    return []
