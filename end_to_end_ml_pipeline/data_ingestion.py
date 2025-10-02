@@ -29,3 +29,6 @@ def load_new_csvs(prefix="incoming/"):
             df = pd.read_csv(file_obj["Body"])
             dfs.append((key, df))
     return dfs
+
+
+# stream example
